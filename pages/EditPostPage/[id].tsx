@@ -19,7 +19,7 @@ const EditPostPage = (post: any) => {
     const data = new FormData(event.currentTarget);
     
     axios
-      .put(`http://localhost:1337/api/posts/${post.post.data.id}`, {
+      .put(`https://zdrowyblog-backend.herokuapp.com/api/posts/${post.post.data.id}`, {
         data:{
           Title: data.get('title'),
           Content: data.get('content'),
@@ -80,7 +80,7 @@ const EditPostPage = (post: any) => {
 
 export async function getServerSideProps(context: any) {
   const {id} = context.query
-  const res = await fetch(`http://localhost:1337/api/posts/${id}`)
+  const res = await fetch(`https://zdrowyblog-backend.herokuapp.com/api/posts/${id}`)
   const post = await res.json()
   return{
     props: {

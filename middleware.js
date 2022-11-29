@@ -17,10 +17,10 @@ export default function middleware(req) {
   }
   else{
     if(!jwt){
-      return NextResponse.redirect("http://localhost:3000/Auth/LoginPage")
+      return NextResponse.redirect("https://zdrowyblog.herokuapp.com/Auth/LoginPage")
     }
     axios
-      .get('http://localhost:1337/posts', {
+      .get('https://zdrowyblog-backend.herokuapp.com/api/posts', {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
@@ -29,7 +29,7 @@ export default function middleware(req) {
         return NextResponse.next()
       })
       .catch(error => {
-        return NextResponse.redirect("http://localhost:3000/Auth/LoginPage")
+        return NextResponse.redirect("https://zdrowyblog.herokuapp.com/Auth/LoginPage")
       });
   }
 }
