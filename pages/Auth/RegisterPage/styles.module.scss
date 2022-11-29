@@ -1,0 +1,30 @@
+.container{
+  position: relative;
+  margin: 30px auto; 
+  width: 500px;
+}
+
+.registerTitle{
+  text-align: center;
+  font-size: 36px;
+  font-family: PoppinsSemiBold;
+  padding: 20px;
+  
+}
+
+.textField{
+  background-color: #fff;
+  border-radius: 5px;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.datePicker{
+  background-color: #fff;
+  border-radius: 5px;
+  :hover {
+    cursor: pointer;
+  }
+  margin: 16px 0 8px 18px;
+}
