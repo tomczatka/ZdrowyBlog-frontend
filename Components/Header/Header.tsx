@@ -8,6 +8,7 @@ import { deleteCookie } from 'cookies-next'
 import { IconButton, Menu, MenuItem, ThemeProvider } from '@mui/material'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import MainTheme from '../themes/MainTheme'
+import styles from './styles.module.scss'
 
 export default function Header() {
   const router = useRouter()
@@ -27,7 +28,7 @@ export default function Header() {
         <AppBar position="static">
           <Toolbar>
             <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
-              <Typography variant="h6" sx={{ ":hover":{cursor:'pointer'}, position: 'relative', top: '8px'}} onClick={() => {router.push('/HomePage')}}>
+              <Typography variant="h6" sx={{ ":hover":{cursor:'pointer', fontFamily: "Poppins"}, position: 'relative', top: '8px'}} onClick={() => {router.push('/HomePage')}}>
                 ZdrowyBlog
               </Typography>
               <IconButton
@@ -47,7 +48,7 @@ export default function Header() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem 
+              <MenuItem className={styles.menuItem}
                 onClick={() => {
                   router.push('/UserPostsPage')
                 }}>
