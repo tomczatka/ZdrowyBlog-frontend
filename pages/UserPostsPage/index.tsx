@@ -5,6 +5,7 @@ import ArticleTile from '../../Components/ArticleTile/ArticleTile'
 import Header from '../../Components/Header/Header'
 import { getCookie } from 'cookies-next'
 import router from 'next/router'
+import { Typography } from '@mui/material'
 
 interface Post {
   data: any
@@ -32,6 +33,9 @@ const UserPostsPage = () => {
   return (
     <>
     <Header/>
+      <div className={styles.pageTitle}>
+        Twoje posty
+      </div>
       <div className= {styles.articleContainer}>
         {posts && posts.data.map((post: any) => (
           <div key={post.id}>
