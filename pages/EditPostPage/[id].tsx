@@ -37,7 +37,7 @@ const EditPostPage = (post: any) => {
     <>
       <Header/>
       <div className={styles.container}>
-        <div className={styles.loginTitle}>
+        <div className={styles.pageTitle}>
           Edytuj post
         </div>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>

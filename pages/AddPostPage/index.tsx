@@ -40,7 +40,7 @@ const AddPostPage = () => {
     <>
       <Header/>
       <div className={styles.container}>
-      <div className={styles.loginTitle}>
+      <div className={styles.pageTitle}>
         Dodaj nowy post
       </div>
       <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
