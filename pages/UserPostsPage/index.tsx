@@ -15,14 +15,14 @@ const UserPostsPage = () => {
   const [posts, setPosts] = useState<Post>()
 
   useEffect(() => {
-    axios.get('https://zdrowyblog-backend.herokuapp.com/api/posts?populate=*')
+    axios.get(`${process.env.NEXT_PUBLIC_URL}/api/posts?populate=*&sort=id:desc`)
       .then(response => setPosts(response.data))
   }, [])
 
   async function handleDelete(id: number) {
-    axios.delete(`https://zdrowyblog-backend.herokuapp.com/api/posts/${id}`)
+    axios.delete(`${process.env.NEXT_PUBLIC_URL}/api/posts/${id}`)
     .then(response => {
-      axios.get('https://zdrowyblog-backend.herokuapp.com/api/posts?populate=*')
+      axios.get(`${process.env.NEXT_PUBLIC_URL}/api/posts?populate=*&sort=id:desc`)
       .then(response => setPosts(response.data))
     })
     .catch(error => {

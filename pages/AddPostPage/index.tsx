@@ -12,7 +12,7 @@ const AddPostPage = () => {
   const id = getCookie('userId')
 
   useEffect(() => {
-    axios.get(`https://zdrowyblog-backend.herokuapp.com/api/users/${id}`)
+    axios.get(`${process.env.NEXT_PUBLIC_URL}/api/users/${id}`)
       .then(response=>{user = response.data})
   }, [])
   
@@ -21,7 +21,7 @@ const AddPostPage = () => {
     const data = new FormData(event.currentTarget);
    
     axios
-      .post('https://zdrowyblog-backend.herokuapp.com/api/posts', {
+      .post(`${process.env.NEXT_PUBLIC_URL}/api/posts`, {
         data:{
           Title: data.get('title'),
           Content: data.get('content'),
