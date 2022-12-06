@@ -30,10 +30,9 @@ const HomePage = () => {
   const [posts, setPosts] = useState<Post>()
   const [meta, setMeta] = useState<Pagination>()
   const [page, setPage] = useState(1);
-  console.log(process.env.NEXT_PUBLIC_URL)
 
   useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_URL}/api/posts?sort=id:desc&populate=*&pagination[page]=${page}&pagination[pageSize]=10`)
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?sort=id:desc&populate=*&pagination[page]=${page}&pagination[pageSize]=10`)
       .then(response => {
         setPosts(response.data)
         setMeta(response.data)
@@ -43,7 +42,7 @@ const HomePage = () => {
 
   const handleChange = (e: any, p: number) => {
     setPage(p);
-    axios.get(`${process.env.NEXT_PUBLIC_URL}/api/posts?sort=id:desc&populate=*&pagination[page]=${p}&pagination[pageSize]=10`)
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?sort=id:desc&populate=*&pagination[page]=${p}&pagination[pageSize]=10`)
       .then(response => {
         setPosts(response.data)
         setMeta(response.data)

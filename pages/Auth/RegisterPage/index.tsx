@@ -25,7 +25,7 @@ const Register = () => {
     const data = new FormData(event.currentTarget);
     
     axios
-      .post(`${process.env.NEXT_PUBLIC_URL}/api/auth/local/register`, {
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/local/register`, {
         username: data.get('username'),
         email: data.get('email'),
         password: data.get('password'),

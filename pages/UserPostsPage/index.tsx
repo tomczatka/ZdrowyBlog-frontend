@@ -15,14 +15,14 @@ const UserPostsPage = () => {
   const [posts, setPosts] = useState<Post>()
 
   useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_URL}/api/posts?populate=*&sort=id:desc`)
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?populate=*&sort=id:desc`)
       .then(response => setPosts(response.data))
   }, [])
 
   async function handleDelete(id: number) {
-    axios.delete(`${process.env.NEXT_PUBLIC_URL}/api/posts/${id}`)
+    axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${id}`)
     .then(response => {
-      axios.get(`${process.env.NEXT_PUBLIC_URL}/api/posts?populate=*&sort=id:desc`)
+      axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?populate=*&sort=id:desc`)
       .then(response => setPosts(response.data))
     })
     .catch(error => {
