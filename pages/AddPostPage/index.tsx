@@ -19,6 +19,7 @@ const AddPostPage = () => {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    console.log(user)
    
     axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`, {

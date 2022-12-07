@@ -15,7 +15,7 @@ const UserPostsPage = () => {
   const [posts, setPosts] = useState<Post>()
 
   useEffect(() => {
-    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?populate=*&sort=id:desc`)
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?populate=*&sort=id:desc&filters[User][id][$eq]=${getCookie('userId')}`)
       .then(response => setPosts(response.data))
   }, [])
 
@@ -39,17 +39,14 @@ const UserPostsPage = () => {
       <div className= {styles.articleContainer}>
         {posts && posts.data.map((post: any) => (
           <div key={post.id}>
-            {post.attributes.User.data.id == getCookie('userId')
-              ? <ArticleTile
-                  id={post.id}
-                  title={post.attributes.Title}
-                  content={post.attributes.Content}
-                  author={post.attributes.User.data.attributes.username}
-                  editable
-                  handleDelete={()=>handleDelete(post.id)}
-                />
-              : null
-            }
+            <ArticleTile
+              id={post.id}
+              title={post.attributes.Title}
+              content={post.attributes.Content}
+              author={post.attributes.User.data.attributes.username}
+              editable
+              handleDelete={()=>handleDelete(post.id)}
+            />
           </div>
         ))}
       </div>

@@ -70,6 +70,7 @@ const HomePage = () => {
           justifyContent={'center'}
           m={'20px'}
           width={'auto'}
+          className={styles.paginationContainer}
         >
           <Pagination
             count={meta?.meta.pagination.pageCount}

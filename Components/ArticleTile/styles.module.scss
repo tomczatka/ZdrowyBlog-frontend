@@ -1,10 +1,17 @@
 .container{
-margin: 15px auto;
-padding: 15px;
-width: 700px;
-background-color: #fff;
-position: relative;
-border-radius: 8px;
+  margin: 15px auto;
+  width: 700px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.tile{
+  z-index: 2;
+  padding: 15px;
+  width: 700px;
+  margin: 15px auto;
+  background-color: #fff;
+  position: relative;
+  border-radius: 8px;
 }
 
 .titleSection{
@@ -23,8 +30,69 @@ border-radius: 8px;
   font-family: Poppins;
 }
 
+.bottomSection{
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgb(117, 117, 117);
+  align-items: center;
+}
+
+.likesSection{
+  font-size: 14px;
+  font-family: Poppins;
+}
+
+.commentTitle{
+  font-size: 14px;
+  font-family: Poppins;
+  cursor: pointer;
+}
+
 .author{
   font-size: 14px;
-  text-align: right;
   font-family: Poppins;
+  text-align: end;
+  margin-bottom: 8px;
+}
+
+.commentsSection{
+  z-index: 1;
+  margin: -30px auto 0;
+  padding: 20px 15px 15px;
+  width: 700px;
+  background-color: rgb(224, 220, 220);
+  position: relative;
+  border-radius: 8px;
+}
+
+.comment{
+  display: flex;
+  justify-content: flex-start
+}
+
+.authorComment{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.textField{
+  background-color: #fff;
+  border-radius: 5px;
+  width: 596px;
+  margin-right: 10px;
+}
+
+.sendButton{
+  height: 40px;
+}
+
+.commentsPlaceholder{
+  font-size: 14px;
+  font-family: Poppins;
+  text-align: center;
+}
+
+.likesSection{
+  display: flex;
+  align-items: center;
 }

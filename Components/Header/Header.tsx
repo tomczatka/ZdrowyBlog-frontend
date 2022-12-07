@@ -54,6 +54,12 @@ export default function Header() {
                 }}>
                   Moje posty
               </MenuItem>
+              <MenuItem className={styles.menuItem}
+                onClick={() => {
+                  router.push('/LikedPostsPage')
+                }}>
+                  Moje polubione posty
+              </MenuItem>
               <MenuItem 
                 onClick={() => {
                   router.push('/AddPostPage')
