@@ -15,9 +15,6 @@ const Register = () => {
   const [open, setOpen] = React.useState(false);
   const [errorText, setErrorText] = React.useState()
   const [value, setValue] = React.useState<Dayjs | null>(null);
-  var HttpsProxyAgent = require('https-proxy-agent');
-  var proxy = process.env.QUOTAGUARDSTATIC_URL;
-  var agent = new HttpsProxyAgent(proxy);
 
   const handleClose = () => {
     setOpen(false);
@@ -50,7 +47,6 @@ const Register = () => {
     
     axios
       .get(`https://hdt.hipokrates.org/?pwz=${data.get('pwz')}&data_ur=${value?.format('DDMMYYYY')}&format=json`, {
-        httpsAgent: agent
       })
       .then((response)=> {
         console.log(response)
