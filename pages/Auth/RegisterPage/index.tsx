@@ -46,7 +46,7 @@ const Register = () => {
     console.log(value?.format('DDMMYYYY'))
     
     axios
-      .post(`http://hdt.hipokrates.org/?pwz=${data.get('pwz')}&data_ur=${value?.format('DDMMYYYY')}&format=json`, {
+      .post(`https://hdt.hipokrates.org/?pwz=${data.get('pwz')}&data_ur=${value?.format('DDMMYYYY')}&format=json`, {
       })
       .then((response)=> {
         console.log(response)
