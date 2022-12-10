@@ -20,23 +20,57 @@ const Register = () => {
     setOpen(false);
   };
   
+  // async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  //   event.preventDefault();
+  //   const data = new FormData(event.currentTarget);
+    
+  //   axios
+  //     .post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/local/register`, {
+  //       username: data.get('username'),
+  //       email: data.get('email'),
+  //       password: data.get('password'),
+  //     })
+  //     .then(()=> {
+  //       router.push('/Auth/LoginPage')
+  //     })
+  //     .catch(error => {
+  //       setErrorText(error.response.data.error.message) 
+  //       setOpen(true)
+  //       console.log('An error occurred:', error.response);
+  //     });
+  // };
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    console.log(value?.format('DDMMYYYY'))
     
     axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/local/register`, {
-        username: data.get('username'),
-        email: data.get('email'),
-        password: data.get('password'),
+      .post(`http://hdt.hipokrates.org/?pwz=${data.get('pwz')}&data_ur=${value?.format('DDMMYYYY')}&format=json`, {
       })
-      .then(()=> {
-        router.push('/Auth/LoginPage')
+      .then((response)=> {
+        console.log(response)
+        // axios
+        //   .post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/local/register`, {
+        //     username: data.get('username'),
+        //     email: data.get('email'),
+        //     password: data.get('password'),
+        //     PwzNumber: data.get('pwz'),
+        //     dateOfBirth: value?.format('DD/MM/YYYY')
+        //   })
+        //   .then(()=> {
+        //     router.push('/Auth/LoginPage')
+        //   })
+        //   .catch(error => {
+        //     setErrorText(error.response.data.error.message) 
+        //     setOpen(true)
+        //     console.log('An error occurred:', error.response);
+        //   });
       })
       .catch(error => {
-        setErrorText(error.response.data.error.message) 
-        setOpen(true)
-        console.log('An error occurred:', error.response);
+        // setErrorText(error.response.data.error.message) 
+        // setOpen(true)
+        // console.log('An error occurred:', error.response);
       });
   };
   
